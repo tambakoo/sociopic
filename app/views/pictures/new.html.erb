@@ -1,0 +1,16 @@
+<div class="container">
+	Select file from your computer to upload
+	<br>
+	<br>
+	<%= form_for @picture, url: pictures_path, html: { multipart: true } do |form| %>
+		  <%= form.file_field :pic %>
+		  <%= form.submit 'Upload' %>
+	<% end %>
+</div>
+<hr>
+<center>
+	Pictures you uploaded
+</center>
+	<br>
+	<br>
+	<%= render 'photo_loop' %>

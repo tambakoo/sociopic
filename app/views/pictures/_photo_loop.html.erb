@@ -1,0 +1,13 @@
+<% @pictures.each do |picture| %>
+	<% if picture.pic.present? %>
+		<center><%= image_tag picture.pic.url(:medium)%> <br>
+			<% if params[:action] == "new" %>
+				uploaded on <%= picture.created_at.to_date %> | <%= link_to "delete", picture, method: :delete %>
+			<% else %>
+				by <%= picture.user.email %> | <%= link_to "subscribe" %>
+			<% end %>
+		</center>
+		<br>
+		<br>
+	<% end %>
+<% end %>
