@@ -16,13 +16,13 @@ class PicturesController < ApplicationController
 	end
 
 	def private_feed
-		@pictures = Picture.all.order("created_at DESC")
+		@pictures = current_user.following.map(&:pictures).flatten
 	end
 
 	def destroy
 		@picture = Picture.find(params[:id])
-			@picture.destroy
-			redirect_to new_picture_path
+		@picture.destroy
+		redirect_to new_picture_path
 	end
 
 

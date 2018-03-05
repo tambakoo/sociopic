@@ -8,4 +8,6 @@ Rails.application.routes.draw do
    get '/private_feed', to: 'pictures#private_feed'
 
    resources :pictures
+   resources :relationships, only: [:create, :destroy]
+
 end
