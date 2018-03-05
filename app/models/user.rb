@@ -14,6 +14,7 @@ class User < ApplicationRecord
   #some instance methods
 
   def follow(other_user)
+  	debugger
   	following << other_user
 	end
 

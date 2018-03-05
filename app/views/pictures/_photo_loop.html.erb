@@ -6,7 +6,8 @@
 			<% else %>
 				by <%= picture.user.email %> | <%= link_to "subscribe" %>
 			<% end %>
-			<%= render 'user/follow'%>
+			<% @user = picture.user %>
+			<%= render 'users/follow', object: @user%>
 		</center>
 		<br>
 		<br>
