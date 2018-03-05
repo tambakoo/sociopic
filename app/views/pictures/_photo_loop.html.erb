@@ -1,15 +1,19 @@
-<% @pictures.each do |picture|%>
-	<% if picture.pic.present? %>
-			<center><%= image_tag picture.pic.url(:medium)%> <br>
-				<% if params[:action] == "new" %>
-					uploaded on <%= picture.created_at.to_date %> | <%= link_to "delete", picture, method: :delete %>
-				<% else %>
-					<% @user = picture.user %>
-					by <%= picture.user.email %>
-					<%= render 'users/button'%>
-				<% end %>
-			</center>
-		<br>
-		<br>
+<% unless @pictures.empty? %>
+	<% @pictures.each do |picture|%>
+		<% if picture.pic.present? %>
+				<center><%=link_to image_tag picture.pic.url(:medium), remote: true%> <br>
+					<% if params[:action] == "new" %>
+						uploaded on <%= picture.created_at.to_date %> | <%= link_to "delete", picture, method: :delete %>
+					<% else %>
+						<% @user = picture.user %>
+						by <%= picture.user.email %>
+						<%= render 'users/button'%>
+					<% end %>
+				</center>
+			<br>
+			<br>
+		<% end %>
 	<% end %>
+<% else %>
+ <center> whoops! nothing here yet </center>
 <% end %>

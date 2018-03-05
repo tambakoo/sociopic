@@ -16,3 +16,36 @@
 //= require_tree 
 //= require jquery
 //= require bootstrap-sprockets
+
+function executeQuery() {
+  $.ajax({
+    //url: '/index',
+    success: function(data) {
+    	$('#photos').load('/pictures #photos')
+    }
+  });
+  setTimeout(executeQuery, 5000);
+}
+
+$(document).ready(function() {
+  setTimeout(executeQuery, 5000);
+});
+
+
+function executeQueryPrivate() {
+  $.ajax({
+    //url: '/index',
+    success: function(data) {
+    	$('#photos_private').load('/private_feed #photos_private')
+    }
+  });
+  setTimeout(executeQueryPrivate, 5000);
+}
+
+$(document).ready(function() {
+  setTimeout(executeQueryPrivate, 5000);
+});
+
+
+
+
