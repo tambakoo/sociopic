@@ -1,0 +1,19 @@
+$('#photos').html('<%= escape_javascript(@pictures) %>')
+
+
+
+//script 
+
+function executeQuery() {
+  $.ajax({
+    //url: '/index',
+    success: function(data) {
+      $('#photos').html(data)
+    }
+  });
+  setTimeout(executeQuery, 500);
+}
+
+$(document).ready(function() {
+  setTimeout(executeQuery, 500);
+});
