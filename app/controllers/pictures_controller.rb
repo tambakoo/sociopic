@@ -18,8 +18,7 @@ before_action :authenticate_user!
   end
 
 	def create
-		@picture = current_user.pictures.build(picture_params)
-		@picture.save
+		@picture = current_user.pictures.create(picture_params)
 		rescue
     flash[:notice] = "Invalid file selected"
 		redirect_to new_picture_path
