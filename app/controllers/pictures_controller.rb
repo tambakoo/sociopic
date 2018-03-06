@@ -19,8 +19,9 @@ before_action :authenticate_user!
 
 	def create
 		@picture = current_user.pictures.create(picture_params)
+		redirect_to new_picture_path
 		rescue
-    flash[:notice] = "Invalid file selected"
+    	flash[:notice] = "Invalid file selected"
 		redirect_to new_picture_path
 	end
 
@@ -35,6 +36,8 @@ before_action :authenticate_user!
 	def destroy
 		@picture = Picture.find_by_id(params[:id])
 		@picture.destroy
+		redirect_to new_picture_path
+		rescue
 		redirect_to new_picture_path
 	end
 
