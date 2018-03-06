@@ -35,6 +35,7 @@ gem 'bootstrap-sass', '~> 3.3.7'
 gem 'jquery-rails'
 
 gem "paperclip", "~> 5.2.1"
+gem 'aws-sdk'
 # gem 'pg'
 
 group :development, :test do
