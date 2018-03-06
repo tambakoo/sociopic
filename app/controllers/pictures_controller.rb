@@ -1,5 +1,8 @@
 class PicturesController < ApplicationController
 
+before_action :authenticate_user!
+
+
 	def index
 		@pictures = Picture.all.order("created_at DESC")
 		@picture = current_user.pictures.new
@@ -16,6 +19,8 @@ class PicturesController < ApplicationController
 
 	def create
 		@picture = current_user.pictures.create(picture_params)
+		rescue
+    flash[:notice] = "Invalid file selected"
 		redirect_to new_picture_path
 	end
 

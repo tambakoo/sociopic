@@ -16,6 +16,11 @@
 	       <tr>
 	        <td>You can manage your pictures from My Pictures link.</td>
 	      </tr>
+	      <% if user_signed_in? %>
+		      <tr>
+	      		<td>Total # of pictures uploaded so far, <strong><%= Picture.count %></strong></td>
+		      </tr>
+	      <% end %>
 	    </tbody>
 	  </table>
 	</div>
