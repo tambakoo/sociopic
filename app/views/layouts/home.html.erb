@@ -8,14 +8,19 @@
 	        <td>The Public feed link lets you see <strong>all</strong> pictures on SocioPic.</td>
 	      </tr>
 	      <tr>
-	        <td>The Private feed link shows pictures of <strong>users you're subscribed to</strong>.</td>
+	        <td>The Private feed link shows pictures of <strong>users you follow</strong>.</td>
 	      </tr>
 	      <tr>
-	        <td>You can subscribe or unsubscribe any user.</td>
+	        <td>You can follow or unfollow any user.</td>
 	      </tr>
 	       <tr>
 	        <td>You can manage your pictures from My Pictures link.</td>
 	      </tr>
+	      <% if user_signed_in? %>
+		      <tr>
+	      		<td>Total # of pictures uploaded so far, <strong><%= Picture.count %></strong></td>
+		      </tr>
+	      <% end %>
 	    </tbody>
 	  </table>
 	</div>
